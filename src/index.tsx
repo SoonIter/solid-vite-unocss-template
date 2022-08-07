@@ -4,7 +4,7 @@ import './index.css'
 import 'virtual:uno.css'
 
 import App from './App'
-import { Router, Routes } from '@solidjs/router'
+import { Router } from '@solidjs/router'
 
 
 

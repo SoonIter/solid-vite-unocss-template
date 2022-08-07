@@ -1,3 +1,4 @@
+import { Link, Route, Routes } from '@solidjs/router';
 import type { Component } from 'solid-js';
 import { createSignal } from 'solid-js';
 
@@ -6,6 +7,16 @@ const App: Component = () => {
   return (
     <div class="text-center">
       <header class="bg-#282c34 min-h-100vh flex flex-col items-center justify-center color-white">
+        <div p-10>
+          <Routes>
+            <Route path="/" element={<div>/</div>} />
+            <Route path="/users" element={<div>/users</div>} />
+            <Route path="/about" element={<div>/about</div>} />
+          </Routes>
+        </div>
+        <Link href="/">/</Link>
+        <Link href="/about">/About</Link>
+        <Link href="/users">users</Link>
         <div class="logo" />
         <h1 class="mt-2em animate-bounce-alt animate-duration-2s">Hello Vite + Solid!</h1>
         <p>
@@ -18,7 +29,7 @@ const App: Component = () => {
           </button>
 
           <button
-          // @ts-ignore
+            // @ts-ignore
             bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600"
             text="sm white"
             font="mono light"
