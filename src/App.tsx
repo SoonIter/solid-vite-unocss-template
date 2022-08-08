@@ -1,8 +1,11 @@
 import { Link, Route, Routes } from '@solidjs/router';
 import type { Component } from 'solid-js';
 
+const Child: Component<{ count: number }> = ({ count }) => {
+  return <div>auto split props : {count}</div>;
+};
 const App: Component = () => {
-  const [count, setCount] = createSignal(0);
+  let count = $signal(0);
   return (
     <div class="text-center">
       <header class="bg-#282c34 min-h-100vh flex flex-col items-center justify-center color-white">
@@ -22,10 +25,13 @@ const App: Component = () => {
           <button
             class="bg-blue-400 hover:bg-blue-500 text-sm text-white font-mono font-light py-2 px-4 rounded border-2 border-blue-200 dark:bg-blue-500 dark:hover:bg-blue-600"
             type="button"
-            onClick={() => setCount((count) => count + 1)}
+            onClick={() => {
+              count++;
+            }}
           >
             count is: {count}
           </button>
+          <Child count={count} />
 
           <button
             // @ts-ignore
@@ -36,7 +42,9 @@ const App: Component = () => {
             m="l-1em"
             border="2 rounded blue-200"
             type="button"
-            onClick={() => setCount((count) => count + 1)}
+            onClick={() => {
+              count++;
+            }}
           >
             count is: {count}
           </button>

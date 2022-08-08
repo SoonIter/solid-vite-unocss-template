@@ -8,11 +8,18 @@ import presetIcons from '@unocss/preset-icons';
 import presetUno from '@unocss/preset-uno';
 import presetAttributify from '@unocss/preset-attributify';
 import Icons from 'unplugin-icons/vite';
-import Inspect from 'vite-plugin-inspect'
+import Inspect from 'vite-plugin-inspect';
+import solidLabels from 'babel-plugin-solid-labels';
+import { undestructurePlugin } from 'babel-plugin-solid-undestructure';
 
 export default defineConfig({
   plugins: [
-    solidPlugin(),
+    ...undestructurePlugin('ts'),
+    solidPlugin({
+      babel: {
+        plugins: [[solidLabels, { dev: process.env.NODE_ENV !== 'production' }]],
+      },
+    }),
     Icons({
       compiler: 'solid',
     }),
@@ -38,7 +45,7 @@ export default defineConfig({
         }),
       ],
     }),
-    Inspect()
+    Inspect(),
   ],
   build: {
     target: 'esnext',
