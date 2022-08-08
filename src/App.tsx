@@ -1,6 +1,5 @@
 import { Link, Route, Routes } from '@solidjs/router';
 import type { Component } from 'solid-js';
-import { createSignal } from 'solid-js';
 
 const App: Component = () => {
   const [count, setCount] = createSignal(0);

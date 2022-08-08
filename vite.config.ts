@@ -8,6 +8,7 @@ import presetIcons from '@unocss/preset-icons';
 import presetUno from '@unocss/preset-uno';
 import presetAttributify from '@unocss/preset-attributify';
 import Icons from 'unplugin-icons/vite';
+import Inspect from 'vite-plugin-inspect'
 
 export default defineConfig({
   plugins: [
@@ -37,6 +38,7 @@ export default defineConfig({
         }),
       ],
     }),
+    Inspect()
   ],
   build: {
     target: 'esnext',
